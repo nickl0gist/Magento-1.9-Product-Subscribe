@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <customers>
+                        <children>
+                            <productavailability translate="title" module="productavailability">
+                                <title>Observed Products</title>
+                            </productavailability>
+                        </children>
+                    </customers>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <customer>
+            <children>
+                <productavailability translate="title" module="productavailability">
+                    <title>Observed Products</title>
+                    <action>adminhtml/product/observed</action>
+                    <sort_order>200</sort_order>
+                </productavailability>
+            </children>
+        </customer>
+    </menu>
+</config>

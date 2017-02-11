@@ -1,0 +1,33 @@
+<?
+$this->getObservation();
+;?>
+
+
+<table class="data-table orders" id="my-orders-table">
+    <col width="1" />
+    <col width="1" />
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+        <tr>
+
+            <th class="date"><?php echo $this->__('Date') ?></th>
+            <th class="total"><span class="nobr"><?php echo $this->__('Product Id') ?></span></th>
+            <th class="a-center view"><span class="nobr"><?php echo $this->__('Product Name') ?></span></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php $_odd = ''; ?>
+    <?php foreach ($this->collection as $_order): ?>
+        <tr>
+            <td class="date"><span class="nobr"><?php echo date('d.m.Y', $_order->created_at);?></span></td>
+            <td class="total"><?php echo $_order->prod_id;?></td>
+            <?php $prod= $this->obj->load($_order->prod_id); ?>
+            <td class="a-center view"><a href="<?php echo $prod->getProductUrl();?>" target="blank"><em><?php echo $prod->getName();?></em></a></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+

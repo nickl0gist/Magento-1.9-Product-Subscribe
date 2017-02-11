@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/Horkov/ProductAvailability/productSubscribe.js</name></action>
+        </reference>
+    </catalog_product_view>
+    <PRODUCT_TYPE_simple translate="label" module="catalog">
+        <reference name="product.info">
+            <block type="productavailability/list" name="product.info.availability" as="product_type_availability" template="productavailability/list.phtml" />
+        </reference>
+    </PRODUCT_TYPE_simple>
+<!--     Setting template when we click to "Observed Products" in users 'My Account'         -->
+    <productavailability_product_observed>
+        <update handle="customer_account"/><!--my.account.wrapper-->
+        <reference name="content">
+            <block name="observed" type="productavailability/observed"  template="productavailability/observed.phtml"/>
+        </reference>
+    </productavailability_product_observed>
+<!--             END Setting template                -->
+<!--             adding link in left bar 'My Account'                -->
+    <customer_account>
+        <reference name="customer_account_navigation" >
+            <action method="addLink" translate="label" module="productavailability">
+                <name>observed_products</name>
+                <path>productavailability/product/observed</path>
+                <label>Observed products</label>
+            </action>
+        </reference>
+    </customer_account>
+<!--            END adding link in 'My Account'     -->
+</layout>
